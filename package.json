@@ -1,0 +1,21 @@
+{
+  "name": "adote-pets",
+  "version": "1.0.0",
+  "description": "App mobile Cordova + Framework7 para adoção responsável.",
+  "main": "www/js/app.js",
+  "scripts": {
+    "start": "cordova run browser",
+    "prepare": "cordova prepare"
+  },
+  "keywords": [
+    "cordova",
+    "framework7",
+    "mobile",
+    "adocao"
+  ],
+  "author": "Equipe Adote Pets",
+  "license": "MIT",
+  "devDependencies": {
+    "cordova": "^12.0.0"
+  }
+}

@@ -1,0 +1,157 @@
+:root {
+  --azul: #0b7285;
+  --azul-escuro: #075985;
+  --laranja: #f08a24;
+  --fundo: #f5f7fa;
+  --card: #ffffff;
+  --texto: #374151;
+}
+
+body {
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: 'Inter', 'Arial', sans-serif;
+}
+
+.navbar-mobile {
+  background: var(--azul);
+  color: #fff;
+}
+
+.title {
+  font-weight: 700;
+}
+
+.title span {
+  color: var(--laranja);
+}
+
+.page-content {
+  padding-bottom: 95px;
+}
+
+.app-section {
+  display: none;
+}
+
+.app-section.active {
+  display: block;
+}
+
+.hero-block {
+  border-radius: 18px;
+  text-align: left;
+}
+
+.hero-image {
+  width: 100%;
+  border-radius: 14px;
+  margin-bottom: 8px;
+}
+
+h1 {
+  font-size: 1.4rem;
+  line-height: 1.25;
+  color: var(--azul-escuro);
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+  color: var(--azul-escuro);
+  font-size: 1.25rem;
+}
+
+.cta-btn {
+  background: var(--laranja);
+}
+
+.section-header-block {
+  margin-bottom: 8px;
+}
+
+.cards-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  padding: 0 16px 8px;
+}
+
+.pet-card .card-header,
+.story-card .card-header,
+.clinic-card .card-header {
+  padding: 0;
+  min-height: auto;
+}
+
+.card-img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+.pet-meta {
+  font-size: 0.84rem;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.pet-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.favorite-btn.active {
+  color: #dc2626;
+  border-color: #dc2626;
+}
+
+.form-simple {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-simple input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.aceite-label {
+  margin-left: 10px;
+  font-size: 0.85rem;
+}
+
+.detail-cover {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.detail-block {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 14px;
+  margin: 14px;
+}
+
+.gap-8 {
+  gap: 8px;
+}
+
+@media (min-width: 700px) {
+  .page {
+    max-width: 768px;
+    margin: 0 auto;
+    box-shadow: 0 0 0 1px #e5e7eb;
+  }
+
+  .card-img {
+    height: 220px;
+  }
+}
