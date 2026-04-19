@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <title>Adote Pets</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/framework7@8/framework7-bundle.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="view view-main">
+        <div class="page" data-name="home">
+          <div class="navbar navbar-mobile">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner sliding">
+              <div class="title brand">Adote<span>Pets</span></div>
+              <div class="right">
+                <a class="link icon-profile-btn" id="open-login" aria-label="Abrir login">👤</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="toolbar toolbar-bottom tabbar-labels">
+            <div class="toolbar-inner">
+              <a href="#" class="tab-link tab-link-active" data-tab="home-section"><span>🏠</span>Início</a>
+              <a href="#" class="tab-link" data-tab="pets-section"><span>🐾</span>Pets</a>
+              <a href="#" class="tab-link" data-tab="historias-section"><span>💬</span>Histórias</a>
+              <a href="#" class="tab-link" data-tab="clinicas-section"><span>🏥</span>Clínicas</a>
+            </div>
+          </div>
+
+          <div class="page-content app-content">
+            <section id="home-section" class="app-section active">
+              <div class="block block-strong hero-block">
+                <img src="img/hero.svg" alt="Banner Adote Pets" class="hero-image" />
+                <h1>Adoção responsável no Distrito Federal</h1>
+                <p>Conectamos adotantes e instituições parceiras para transformar vidas com cuidado e amor.</p>
+                <a class="button button-fill cta-btn go-pets">Quero adotar</a>
+              </div>
+              <div class="block block-strong intro-block">
+                <h2>Conheça o Adote Pets</h2>
+                <p>Veja pets disponíveis, leia histórias de impacto, encontre clínicas de castração e salve seus favoritos.</p>
+              </div>
+            </section>
+
+            <section id="pets-section" class="app-section">
+              <div class="block section-header-block">
+                <h2>Pets disponíveis</h2>
+                <div class="row gap-8">
+                  <button class="button button-outline" id="btn-filtro">Filtrar</button>
+                  <button class="button button-fill" id="btn-novo-pet">Cadastrar pet</button>
+                </div>
+              </div>
+              <div class="block-title">Favoritos</div>
+              <div id="lista-favoritos" class="cards-list"></div>
+              <div class="block-title">Todos os pets</div>
+              <div id="lista-pets" class="cards-list"></div>
+            </section>
+
+            <section id="historias-section" class="app-section">
+              <div class="block section-header-block">
+                <h2>Histórias de Impacto</h2>
+                <p>Relatos reais de adoção responsável.</p>
+              </div>
+              <div id="lista-historias" class="cards-list"></div>
+            </section>
+
+            <section id="clinicas-section" class="app-section">
+              <div class="block section-header-block">
+                <h2>Clínicas de Castração</h2>
+                <p>Parceiras para apoiar a saúde e bem-estar animal.</p>
+              </div>
+              <div id="lista-clinicas" class="cards-list"></div>
+            </section>
+          </div>
+
+          <a class="fab fab-right-bottom color-orange" id="fab-login" aria-label="Abrir login">
+            <i class="icon">👤</i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="popup-filtro">
+      <div class="view">
+        <div class="page">
+          <div class="navbar"><div class="navbar-inner"><div class="title">Filtrar pets</div><div class="right"><a class="link popup-close">Fechar</a></div></div></div>
+          <div class="page-content">
+            <form id="form-filtro" class="list no-hairlines-md form-list">
+              <ul>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Espécie</div><div class="item-input-wrap"><input type="text" name="especie" placeholder="Cachorro ou Gato" /></div></div></li>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Sexo</div><div class="item-input-wrap"><input type="text" name="sexo" placeholder="Macho ou Fêmea" /></div></div></li>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Porte</div><div class="item-input-wrap"><input type="text" name="porte" placeholder="Pequeno, Médio..." /></div></div></li>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Raça</div><div class="item-input-wrap"><input type="text" name="raca" placeholder="Ex.: SRD" /></div></div></li>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Localização</div><div class="item-input-wrap"><input type="text" name="localizacao" placeholder="Cidade/Bairro" /></div></div></li>
+              </ul>
+              <div class="block row gap-8">
+                <button type="submit" class="button button-fill cta-btn">Aplicar</button>
+                <button type="button" class="button button-outline" id="btn-limpar-filtro">Limpar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="popup-pet-form">
+      <div class="view">
+        <div class="page">
+          <div class="navbar"><div class="navbar-inner"><div class="title" id="titulo-form-pet">Cadastrar pet</div><div class="right"><a class="link popup-close">Fechar</a></div></div></div>
+          <div class="page-content">
+            <form id="form-pet" class="list no-hairlines-md form-list">
+              <input type="hidden" name="id" />
+              <ul>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Nome</div><div class="item-input-wrap"><input required type="text" name="nome" /></div></div></li>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Espécie</div><div class="item-input-wrap"><input required type="text" name="especie" /></div></div></li>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Sexo</div><div class="item-input-wrap"><input required type="text" name="sexo" /></div></div></li>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Raça</div><div class="item-input-wrap"><input required type="text" name="raca" /></div></div></li>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Porte</div><div class="item-input-wrap"><input required type="text" name="porte" /></div></div></li>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Idade</div><div class="item-input-wrap"><input required type="text" name="idade" /></div></div></li>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Peso</div><div class="item-input-wrap"><input required type="text" name="peso" /></div></div></li>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Localização</div><div class="item-input-wrap"><input required type="text" name="localizacao" /></div></div></li>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Status</div><div class="item-input-wrap"><input required type="text" name="status" /></div></div></li>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Imagem (URL opcional)</div><div class="item-input-wrap"><input type="text" name="imagem" /></div></div></li>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Descrição</div><div class="item-input-wrap"><textarea name="descricao"></textarea></div></div></li>
+              </ul>
+              <div class="block"><button type="submit" class="button button-fill cta-btn">Salvar pet</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="popup-pet-detalhe"><div class="view"><div class="page"><div class="navbar"><div class="navbar-inner"><div class="title">Detalhes do pet</div><div class="right"><a class="link popup-close">Fechar</a></div></div></div><div class="page-content" id="pet-detalhe-conteudo"></div></div></div></div>
+
+    <div class="popup" id="popup-historia-detalhe"><div class="view"><div class="page"><div class="navbar"><div class="navbar-inner"><div class="title">História</div><div class="right"><a class="link popup-close">Fechar</a></div></div></div><div class="page-content" id="historia-detalhe-conteudo"></div></div></div></div>
+
+    <div class="popup" id="popup-login">
+      <div class="view">
+        <div class="page">
+          <div class="navbar"><div class="navbar-inner"><div class="title">Entrar</div><div class="right"><a class="link popup-close">Fechar</a></div></div></div>
+          <div class="page-content">
+            <div class="block block-strong">
+              <form id="form-login" class="form-simple">
+                <input required type="email" name="email" placeholder="E-mail" />
+                <input required type="password" name="senha" placeholder="Senha" />
+                <button type="submit" class="button button-fill cta-btn">Entrar</button>
+              </form>
+            </div>
+            <div class="block block-strong">
+              <h3>Crie sua conta</h3>
+              <a class="button button-outline" id="btn-cadastro-instituicao">Cadastro de instituição</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="popup" id="popup-instituicao">
+      <div class="view">
+        <div class="page">
+          <div class="navbar"><div class="navbar-inner"><div class="title">Cadastro de instituição</div><div class="right"><a class="link popup-close">Fechar</a></div></div></div>
+          <div class="page-content">
+            <form id="form-instituicao" class="list no-hairlines-md form-list">
+              <ul>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Nome</div><div class="item-input-wrap"><input required type="text" name="nome" /></div></div></li>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">E-mail</div><div class="item-input-wrap"><input required type="email" name="email" /></div></div></li>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Telefone</div><div class="item-input-wrap"><input required type="text" name="telefone" /></div></div></li>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">CNPJ</div><div class="item-input-wrap"><input required type="text" name="cnpj" /></div></div></li>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Cidade</div><div class="item-input-wrap"><input required type="text" name="cidade" /></div></div></li>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Endereço</div><div class="item-input-wrap"><input required type="text" name="endereco" /></div></div></li>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Senha</div><div class="item-input-wrap"><input required type="password" name="senha" /></div></div></li>
+                <li class="item-content item-input"><div class="item-inner"><div class="item-title item-label">Confirmar senha</div><div class="item-input-wrap"><input required type="password" name="confirmarSenha" /></div></div></li>
+                <li class="item-content"><label class="checkbox"><input required type="checkbox" name="aceite" /><i class="icon-checkbox"></i></label><span class="aceite-label">Aceito os termos de uso.</span></li>
+              </ul>
+              <div class="block"><button type="submit" class="button button-fill cta-btn">Cadastrar</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="cordova.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/framework7@8/framework7-bundle.min.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/manager.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
