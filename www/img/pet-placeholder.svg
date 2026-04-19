@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420">
+  <rect width="640" height="420" fill="#d9edf2"/>
+  <circle cx="320" cy="180" r="110" fill="#0b7285" opacity="0.15"/>
+  <text x="320" y="200" text-anchor="middle" font-size="64" font-family="Arial">🐾</text>
+  <text x="320" y="260" text-anchor="middle" font-size="34" fill="#0b7285" font-family="Arial">Adote com amor</text>
+</svg>

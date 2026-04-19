@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f7f1e3"/>
+  <circle cx="640" cy="260" r="180" fill="#ff9f43" opacity="0.18"/>
+  <text x="60" y="170" font-size="52" font-family="Arial" fill="#0b7285" font-weight="700">Adote Pets</text>
+  <text x="60" y="230" font-size="34" font-family="Arial" fill="#1f2937">Adoção responsável</text>
+  <text x="60" y="275" font-size="34" font-family="Arial" fill="#1f2937">com amor e cuidado</text>
+  <g transform="translate(460,120)">
+    <circle cx="120" cy="130" r="105" fill="#ffffff"/>
+    <path d="M70 170 Q120 70 170 170" stroke="#0b7285" stroke-width="12" fill="none"/>
+    <circle cx="96" cy="130" r="10" fill="#0b7285"/>
+    <circle cx="144" cy="130" r="10" fill="#0b7285"/>
+    <circle cx="120" cy="150" r="8" fill="#ff9f43"/>
+  </g>
+</svg>
